@@ -25,15 +25,23 @@
   </div>
   <div class="field">
     <%= f.label :start_date %><br>
-    <%= f.datetime_select :start_date %>
+    <%= f.date_select :start_date %>
   </div>
   <div class="field">
     <%= f.label :end_date %><br>
-    <%= f.datetime_select :end_date %>
+    <%= f.date_select :end_date %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
+  </div>
+    <div class="field">
+    <%= f.label :password %><br>
+  <%= f.password_field :password %>
+  </div>
+    <div class="field">
+    <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
     <%= f.submit %>
