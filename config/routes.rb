@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
+ # get 'static_pages/home'
 
-  get 'static_pages/help'
+  #get 'static_pages/help'
   
-  get 'static_pages/about'
+  #get 'static_pages/about'
   
-  get 'static_pages/contact_us'
+  #get 'static_pages/contact_us'
+  
+  
+  
+  root  'static_pages#home'
+  match '/help',    to: 'static_pages#help',    via: 'get'
+  match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/contact_us', to: 'static_pages#contact_us', via: 'get'
+  match '/signup',  to: 'users#new',            via: 'get'
 
   resources :projects
 
