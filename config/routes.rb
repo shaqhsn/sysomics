@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   match '/contact_us', to: 'static_pages#contact_us', via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
 
+
+
+
   resources :projects
 
   resources :users
