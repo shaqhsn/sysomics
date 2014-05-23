@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact_us', to: 'static_pages#contact_us', via: 'get'
-  match '/signup',  to: 'users#new',            via: 'get'
+  match '/new_user',  to: 'users#new',            via: 'get'
+  match '/new_project',  to: 'projects#new',            via: 'get'
+
 
 
 

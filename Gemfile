@@ -49,3 +49,6 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+
+gem 'carrierwave'
+gem 'carrierwave-ftp', :require => 'carrierwave/storage/sftp' # SFTP only

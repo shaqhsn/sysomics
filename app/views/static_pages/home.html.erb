@@ -6,7 +6,12 @@
 
   </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  	<%= link_to "New User", new_user_path, class: "btn btn-large btn-primary" %>
+    <%= link_to "New Proejct", new_project_path, class: "btn btn-large btn-primary" %>
+    <%= link_to "Projects", "http://localhost:3000/projects", class: "btn btn-large btn-primary" %>
+    <%= link_to "Users", "http://localhost:3000/users", class: "btn btn-large btn-primary" %>
+
+
 </div>
 
 <%= link_to image_tag("sysomics.jpg", alt: "sysomics"), 'http://sysbio.se/' %>

@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.select :user_id, options_for_select(User.all.map{|s|[s.username, s.id]}) %>
+
   </div>
   <div class="field">
     <%= f.label :experiment_id %><br>
@@ -43,6 +44,16 @@
     <%= f.label :end_date %><br>
     <%= f.date_select :end_date %>
   </div>
+  
+  
+
+    <div class="field">
+
+    <%= f.label :attachment %>
+    <%= f.file_field :attachment %>
+    </div>
+
+  
   <div class="actions">
     <%= f.submit %>
   </div>
