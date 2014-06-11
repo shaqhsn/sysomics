@@ -18,7 +18,7 @@
   </div>
   <div class="field">
     <%= f.label :experiment_id %><br>
-    <%= f.number_field :experiment_id %>
+   <%= f.select :experiment_id, options_for_select(Experiment.all.map{|s|[s.name, s.id]}) %>
   </div>
   <div class="field">
     <%= f.label :publication_id %><br>

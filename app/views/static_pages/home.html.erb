@@ -6,12 +6,39 @@
 
   </h2>
 
-  	<%= link_to "New User", new_user_path, class: "btn btn-large btn-primary" %>
-    <%= link_to "New Proejct", new_project_path, class: "btn btn-large btn-primary" %>
-    <%= link_to "Projects", "http://localhost:3000/projects", class: "btn btn-large btn-primary" %>
-    <%= link_to "Users", "http://localhost:3000/users", class: "btn btn-large btn-primary" %>
-
 
 </div>
 
+
+
+<p style = "color: orange" ;><b>Setting:</b>
+		&nbsp<%= link_to "Users", users_path %> 
+	<p style = "color: orange";><b>Create your Projects here:</b>
+		&nbsp<%= link_to "Projects", projects_path %></p> 
+     <p style = "color: orange";><b>Sample:</b>
+     	&nbsp &nbsp<%= link_to "Samples", samples_path  %>
+
+    	&nbsp &nbsp<%= link_to "Organisms", organisms_path  %>
+
+	    &nbsp &nbsp<%= link_to "Tissues", tissues_path  %>
+
+	    &nbsp &nbsp<%= link_to "Cell_types", cell_types_path  %>
+
+	   &nbsp &nbsp<%= link_to "Molecules", molecules_path  %></p>
+	<p style = "color: orange";><b>Experiment:</b>
+	   &nbsp &nbsp<%= link_to "Experiments", experiments_path  %>
+
+	   &nbsp &nbsp<%= link_to "Platforms", platforms_path  %>
+
+	   &nbsp &nbsp<%= link_to "Protocols", protocols_path  %>
+
+	   &nbsp &nbsp<%= link_to "Diseases", diseases_path  %></p>
+
+	<p style = "color: orange";><b>Data_processing:</b></p>
+	<p style = "color: orange";><b>Publications:</b></p>
+	<p style = "color: orange";><b>Internal_repository:</b></p>
+    
+    
+ 
+    
 <%= link_to image_tag("sysomics.jpg", alt: "sysomics"), 'http://sysbio.se/' %>

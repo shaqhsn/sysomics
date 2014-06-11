@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  resources :experiments
+
+  resources :experiment_details
+
+  resources :samples
+
+  resources :diseases
+
+  resources :platforms
+
+  resources :molecules
+
+  resources :cell_types
+
+  resources :protocols
+
+  resources :tissues
+
+  resources :organisms
+
  # get 'static_pages/home'
 
   #get 'static_pages/help'
@@ -15,6 +35,20 @@ Rails.application.routes.draw do
   match '/contact_us', to: 'static_pages#contact_us', via: 'get'
   match '/new_user',  to: 'users#new',            via: 'get'
   match '/new_project',  to: 'projects#new',            via: 'get'
+  match '/projects',  to: 'projects#index',            via: 'get'
+  match '/users',  to: 'users#index',            via: 'get'
+  match '/experiments',  to: 'experiments#index', via: 'get'
+  match '/samples',  to: 'samples#index',            via: 'get'
+  match '/organisms',  to: 'organisms#index',            via: 'get'
+  match '/protocols',  to: 'protocols#index',            via: 'get'
+  match '/cell_types',  to: 'cell_types#index',            via: 'get'
+  match '/molecules',  to: 'molecules#index',            via: 'get'
+  match '/platforms',  to: 'platforms#index',            via: 'get'
+  match '/tissues',  to: 'tissues#index',            via: 'get'
+  match '/diseases',  to: 'diseases#index',            via: 'get'
+
+
+
 
 
 

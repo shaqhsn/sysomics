@@ -1,0 +1,42 @@
+<%= form_for(@sample) do |f| %>
+  <% if @sample.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sample.errors.count, "error") %> prohibited this sample from being saved:</h2>
+
+      <ul>
+      <% @sample.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :cell_type_id %><br>
+           <%= f.select :cell_type_id, options_for_select(CellType.all.map{|s|[s.name, s.id]}) %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :tissue_id %><br>
+           <%= f.select :tissue_id, options_for_select(Tissue.all.map{|s|[s.name, s.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :organism_id %><br>
+           <%= f.select :organism_id, options_for_select(Organism.all.map{|s|[s.name, s.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :molecule_id %><br>
+           <%= f.select :molecule_id, options_for_select(Molecule.all.map{|s|[s.name, s.id]}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

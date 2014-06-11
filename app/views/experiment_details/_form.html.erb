@@ -1,0 +1,42 @@
+<%= form_for(@experiment_detail) do |f| %>
+  <% if @experiment_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@experiment_detail.errors.count, "error") %> prohibited this experiment_detail from being saved:</h2>
+
+      <ul>
+      <% @experiment_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sample_id %><br>
+    <%= f.select :sample_id, options_for_select(Sample.all.map{|s|[s.name, s.id]}) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :platform_id %><br>
+           <%= f.select :platform_id, options_for_select(Platform.all.map{|s|[s.name, s.id]}) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :protocol_id %><br>
+    <%= f.select :protocol_id, options_for_select(Protocol.all.map{|s|[s.name, s.id]}) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :disease_id %><br>
+    <%= f.select :disease_id, options_for_select(Disease.all.map{|s|[s.name, s.id]}) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :experiment_id %><br>
+    <%= f.select :experiment_id, options_for_select(Experiment.all.map{|s|[s.name, s.id]}) %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

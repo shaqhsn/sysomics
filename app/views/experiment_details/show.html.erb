@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sample:</strong>
+  <%= @experiment_detail.sample_id %>
+</p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @experiment_detail.platform_id %>
+</p>
+
+<p>
+  <strong>Protocol:</strong>
+  <%= @experiment_detail.protocol_id %>
+</p>
+
+<p>
+  <strong>Disease:</strong>
+  <%= @experiment_detail.disease_id %>
+</p>
+
+<p>
+  <strong>Experiment:</strong>
+  <%= @experiment_detail.experiment_id %>
+</p>
+
+<%= link_to 'Edit', edit_experiment_detail_path(@experiment_detail) %> |
+<%= link_to 'Back', experiment_details_path %>

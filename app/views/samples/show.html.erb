@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sample.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sample.title %>
+</p>
+
+<p>
+  <strong>Cell type:</strong>
+  <%= @sample.cell_type_id %>
+</p>
+
+<p>
+  <strong>Tissue:</strong>
+  <%= @sample.tissue_id %>
+</p>
+
+<p>
+  <strong>Organism:</strong>
+  <%= @sample.organism_id %>
+</p>
+
+<p>
+  <strong>Molecule:</strong>
+  <%= @sample.molecule_id %>
+</p>
+
+<%= link_to 'Edit', edit_sample_path(@sample) %> |
+<%= link_to 'Back', samples_path %>

@@ -11,11 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523130451) do
+ActiveRecord::Schema.define(version: 20140611113921) do
+
+  create_table "cell_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "directories", force: true do |t|
     t.string   "name"
     t.string   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "diseases", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "experiment_details", force: true do |t|
+    t.integer  "sample_id"
+    t.integer  "platform_id"
+    t.integer  "protocol_id"
+    t.integer  "disease_id"
+    t.integer  "experiment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "experiments", force: true do |t|
+    t.string   "name"
+    t.string   "comment"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "molecules", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organisms", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "platforms", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +80,29 @@ ActiveRecord::Schema.define(version: 20140523130451) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "attachment"
+  end
+
+  create_table "protocols", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "samples", force: true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.integer  "cell_type_id"
+    t.integer  "tissue_id"
+    t.integer  "organism_id"
+    t.integer  "molecule_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tissues", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
