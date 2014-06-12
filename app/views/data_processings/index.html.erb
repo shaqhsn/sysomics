@@ -1,0 +1,31 @@
+<h1>Listing data_processings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data processing type</th>
+      <th>Software</th>
+      <th>Data set</th>
+      <th>File</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data_processings.each do |data_processing| %>
+      <tr>
+        <td><%= data_processing.data_processing_type_id %></td>
+        <td><%= data_processing.software_id %></td>
+        <td><%= data_processing.data_set_id %></td>
+        <td><%= data_processing.file_id %></td>
+        <td><%= link_to 'Show', data_processing %></td>
+        <td><%= link_to 'Edit', edit_data_processing_path(data_processing) %></td>
+        <td><%= link_to 'Destroy', data_processing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Data processing', new_data_processing_path %>

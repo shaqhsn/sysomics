@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data processing type:</strong>
+  <%= @data_processing.data_processing_type_id %>
+</p>
+
+<p>
+  <strong>Software:</strong>
+  <%= @data_processing.software_id %>
+</p>
+
+<p>
+  <strong>Data set:</strong>
+  <%= @data_processing.data_set_id %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @data_processing.file_id %>
+</p>
+
+<%= link_to 'Edit', edit_data_processing_path(@data_processing) %> |
+<%= link_to 'Back', data_processings_path %>

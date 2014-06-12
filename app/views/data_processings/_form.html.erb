@@ -1,0 +1,33 @@
+<%= form_for(@data_processing) do |f| %>
+  <% if @data_processing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@data_processing.errors.count, "error") %> prohibited this data_processing from being saved:</h2>
+
+      <ul>
+      <% @data_processing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data_processing_type_id %><br>
+    <%= f.number_field :data_processing_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :software_id %><br>
+    <%= f.text_field :software_id %>
+  </div>
+  <div class="field">
+    <%= f.label :data_set_id %><br>
+    <%= f.number_field :data_set_id %>
+  </div>
+  <div class="field">
+    <%= f.label :file_id %><br>
+    <%= f.number_field :file_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

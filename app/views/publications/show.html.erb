@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Public repository:</strong>
+  <%= @publication.public_repository_id %>
+</p>
+
+<p>
+  <strong>Doi:</strong>
+  <%= @publication.DOI %>
+</p>
+
+<%= link_to 'Edit', edit_publication_path(@publication) %> |
+<%= link_to 'Back', publications_path %>

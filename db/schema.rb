@@ -11,10 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611113921) do
+ActiveRecord::Schema.define(version: 20140612084841) do
 
   create_table "cell_types", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "data_processing_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "data_processings", force: true do |t|
+    t.integer  "data_processing_type_id"
+    t.integer  "software_id"
+    t.integer  "data_set_id"
+    t.integer  "file_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "data_set_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "data_sets", force: true do |t|
+    t.integer  "data_set_type_id"
+    t.integer  "project_id"
+    t.date     "create_date"
+    t.string   "name"
+    t.string   "comment"
+    t.integer  "file_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,6 +120,21 @@ ActiveRecord::Schema.define(version: 20140611113921) do
     t.datetime "updated_at"
   end
 
+  create_table "public_repositories", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "record_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "publications", force: true do |t|
+    t.integer  "public_repository_id"
+    t.string   "DOI"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "samples", force: true do |t|
     t.string   "name"
     t.string   "title"
@@ -95,6 +142,21 @@ ActiveRecord::Schema.define(version: 20140611113921) do
     t.integer  "tissue_id"
     t.integer  "organism_id"
     t.integer  "molecule_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "software_parameters", force: true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.integer  "software_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "softwares", force: true do |t|
+    t.string   "name"
+    t.string   "version"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
