@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :data_processing_type_id %><br>
-    <%= f.number_field :data_processing_type_id %>
+    <%= f.select :data_processing_type_id, options_for_select(DataProcessingType.all.map{|s|[s.name, s.id]}) %>
   </div>
   <div class="field">
-    <%= f.label :software_id %><br>
-    <%= f.text_field :software_id %>
+  	<%= f.label :software %><br>
+    <%= f.select :software_id, options_for_select(Software.all.map{|s|[s.name, s.id]}) %>
   </div>
   <div class="field">
     <%= f.label :data_set_id %><br>
-    <%= f.number_field :data_set_id %>
+    <%= f.select :data_set_id, options_for_select(DataSet.all.map{|s|[s.name, s.id]}) %>
   </div>
   <div class="field">
     <%= f.label :file_id %><br>

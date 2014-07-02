@@ -3,7 +3,7 @@ class DataSet < ActiveRecord::Base
 	    validates :comment, length: { maximum: 1000 }
 		validates :create_date, length: { maximum: 100 },presence: true
 
-	has_one :data_set_type
-	has_one:file
-	has_one:project
+	belongs_to :data_set_type
+	belongs_to:file
+	belongs_to:project
 end

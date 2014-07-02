@@ -14,9 +14,9 @@
   <tbody>
     <% @data_processings.each do |data_processing| %>
       <tr>
-        <td><%= data_processing.data_processing_type_id %></td>
-        <td><%= data_processing.software_id %></td>
-        <td><%= data_processing.data_set_id %></td>
+        <td><%= data_processing.data_processing_type.name %></td>
+        <td><%= data_processing.software.name %></td>
+        <td><%= data_processing.data_set.name %></td>
         <td><%= data_processing.file_id %></td>
         <td><%= link_to 'Show', data_processing %></td>
         <td><%= link_to 'Edit', edit_data_processing_path(data_processing) %></td>

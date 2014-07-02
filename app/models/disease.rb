@@ -1,5 +1,5 @@
 class Disease < ActiveRecord::Base
 validates :name, length: { maximum: 45 },presence: true,uniqueness: true
-	belongs_to :experiment
+	has_one :experiment
 
 end

@@ -15,7 +15,7 @@
       <tr>
         <td><%= software_parameter.name %></td>
         <td><%= software_parameter.value %></td>
-        <td><%= software_parameter.software_id %></td>
+        <td><%= software_parameter.software.name%></td>
         <td><%= link_to 'Show', software_parameter %></td>
         <td><%= link_to 'Edit', edit_software_parameter_path(software_parameter) %></td>
         <td><%= link_to 'Destroy', software_parameter, method: :delete, data: { confirm: 'Are you sure?' } %></td>

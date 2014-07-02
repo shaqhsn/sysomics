@@ -16,8 +16,10 @@
   <tbody>
     <% @data_sets.each do |data_set| %>
       <tr>
-        <td><%= data_set.data_set_type_id %></td>
-        <td><%= data_set.project_id %></td>
+
+        <td><%= data_set.data_set_type.name%></td>
+        <td><%= data_set.project.title %></td>
+
         <td><%= data_set.create_date %></td>
         <td><%= data_set.name %></td>
         <td><%= data_set.comment %></td>

@@ -19,7 +19,7 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.user.username %></td>
-        <td><%= project.experiment_id %></td>
+        <td><%= project.experiment.name %></td>
         <td><%= project.publication_id %></td>
         <td><%= project.file_id %></td>
         <td><%= project.title %></td>
