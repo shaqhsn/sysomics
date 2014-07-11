@@ -26,7 +26,12 @@
         <td><%= project.summary %></td>
         <td><%= project.start_date %></td>
         <td><%= project.end_date %></td>
+<<<<<<< HEAD
         <td><%= link_to  project.attachment.filename,download_url(project,project.attachment.url)%></td>
+=======
+        <td><%= project.attachment %></td>
+
+>>>>>>> 9648afbcb718e0b9e3960ce3d2aeffa75291a00d
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

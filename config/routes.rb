@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :assets
 
+=======
+>>>>>>> 9648afbcb718e0b9e3960ce3d2aeffa75291a00d
   resources :public_repositories
 
   resources :publications

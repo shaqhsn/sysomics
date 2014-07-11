@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140707130906) do
 
   create_table "assets", force: true do |t|
@@ -24,6 +25,9 @@ ActiveRecord::Schema.define(version: 20140707130906) do
   end
 
   add_index "assets", ["user_id"], name: "index_assets_on_user_id"
+=======
+ActiveRecord::Schema.define(version: 20140616142057) do
+>>>>>>> 9648afbcb718e0b9e3960ce3d2aeffa75291a00d
 
   create_table "cell_types", force: true do |t|
     t.string   "name"

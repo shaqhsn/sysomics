@@ -16,7 +16,10 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   def store_dir
    # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   '/c3se/users/seyeho/uploads_from_sysomics'
+<<<<<<< HEAD
   
+=======
+>>>>>>> 9648afbcb718e0b9e3960ce3d2aeffa75291a00d
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
