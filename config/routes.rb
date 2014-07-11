@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :assets
+
   resources :public_repositories
 
   resources :publications
@@ -81,6 +83,9 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
 
+#this route is for file downloads  
+#match "assets/get/:id" => "assets#get", :as => "download" ,   via: 'get'
+match 'projects/get/:id' => 'projects#get', :as => 'download' ,   via: 'get'
 
 
 

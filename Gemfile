@@ -52,3 +52,9 @@ gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
 gem 'carrierwave'
 gem 'carrierwave-ftp', :require => 'carrierwave/storage/sftp' # SFTP only
+
+#for uploading files  
+#gem "paperclip", "~> 2.3"  
+gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'paperclip-sftp', '~> 1.0.3'
+gem "paperclip-storage-ftp"
