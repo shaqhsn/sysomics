@@ -1,0 +1,7 @@
+A Pipe() can only have two endpoints.
+
+A Queue() can have multiple producers and consumers.
+
+http://stackoverflow.com/questions/8463008/python-multiprocessing-pipe-vs-queue
+
+In summary Pipe() is about three times faster than a Queue(). Don't even think about the JoinableQueue() unless you really must have the benefits

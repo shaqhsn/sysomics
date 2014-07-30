@@ -13,3 +13,73 @@
  *= require_tree .
  *= require_self
  */
+.asset_list_header, .asset_list, .asset_details { 
+    width:800px; 
+    font-weight:bold; 
+    font-size:12px; 
+    overflow:hidden; 
+  
+} 
+.file_name_header, .file_name { 
+    width:350px; 
+    float:left; 
+    padding-left:20px; 
+} 
+.file_size_header, .file_size { 
+    width:100px; 
+    float:left; 
+} 
+.file_last_updated_header, .file_last_updated { 
+    width:150px; 
+    float:left; 
+} 
+.asset_list { 
+    padding:20px 0; 
+} 
+.asset_details { 
+    font-weight:normal; 
+    height:25px; 
+    line-height:25px; 
+    border:1px solid #FFF; 
+    width:790px; 
+    color:#4F4F4F; 
+} 
+  
+.asset_details a, .asset_details a:visited { 
+    text-decoration:none; 
+    color:#1D96EF; 
+    font-size:12px; 
+}
+.folder  { 
+		  background-image: url(image-path('folder.png'));
+
+} 
+  
+.file { 
+    background:url("../images/file.png") no-repeat scroll left center transparent;
+
+ 
+} 
+.folder.asset_details:hover, .shared_folder.asset_details:hover, .file.asset_details:hover  { 
+    border:1px solid #DFDFDF; 
+} 
+.folder.asset_details:hover  { 
+    background:url("../images/folder.png") no-repeat scroll left center #EFEFEF; 
+} 
+.shared_folder  { 
+    background:url("../images/shared_folder.png") no-repeat scroll left center transparent; 
+} 
+.shared_folder.asset_details:hover  { 
+    background:url("../images/shared_folder.png") no-repeat scroll left center #EFEFEF; 
+} 
+.file.asset_details:hover  { 
+    background:url("../images/file.png") no-repeat scroll left center #EFEFEF; 
+}
+.breadcrumbs { 
+   margin:10px 0; 
+   font-weight:bold; 
+} 
+.breadcrumbs a { 
+   color:#1D96EF; 
+   text-decoration:none; 
+}

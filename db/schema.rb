@@ -11,23 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140707130906) do
+ActiveRecord::Schema.define(version: 20140730130817) do
 
   create_table "assets", force: true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "uploaded_file_file_name"
-    t.string   "uploaded_file_content_type"
-    t.integer  "uploaded_file_file_size"
-    t.datetime "uploaded_file_updated_at"
+    t.string  "attachment"
+    t.integer "size"
+    t.integer "project_id"
+    t.integer "folder_id"
   end
 
-  add_index "assets", ["user_id"], name: "index_assets_on_user_id"
-=======
-ActiveRecord::Schema.define(version: 20140616142057) do
->>>>>>> 9648afbcb718e0b9e3960ce3d2aeffa75291a00d
+  add_index "assets", ["folder_id"], name: "index_assets_on_folder_id"
 
   create_table "cell_types", force: true do |t|
     t.string   "name"
@@ -98,6 +91,20 @@ ActiveRecord::Schema.define(version: 20140616142057) do
     t.datetime "updated_at"
   end
 
+  create_table "file_repository_tables", force: true do |t|
+  end
+
+  create_table "folders", force: true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "folders", ["parent_id"], name: "index_folders_on_parent_id"
+  add_index "folders", ["project_id"], name: "index_folders_on_project_id"
+
   create_table "molecules", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -120,7 +127,6 @@ ActiveRecord::Schema.define(version: 20140616142057) do
     t.integer  "user_id"
     t.integer  "experiment_id"
     t.integer  "publication_id"
-    t.integer  "file_id"
     t.string   "title"
     t.string   "summary"
     t.date     "start_date"

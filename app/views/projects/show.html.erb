@@ -15,10 +15,6 @@
   <%= @project.publication_id %>
 </p>
 
-<p>
-  <strong>File:</strong>
-  <%= @project.file_id %>
-</p>
 
 <p>
   <strong>Title:</strong>
@@ -39,6 +35,9 @@
   <strong>End date:</strong>
   <%= @project.end_date %>
 </p>
+<p>
+
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

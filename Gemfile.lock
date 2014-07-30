@@ -37,6 +37,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_tree (2.0.0)
+      activerecord (>= 3.0.0)
     arel (5.0.1.20140414130214)
     bcrypt-ruby (3.1.1.rc1)
     bootstrap-sass (2.3.2.0)
@@ -179,6 +181,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_tree
   bcrypt-ruby (= 3.1.1.rc1)
   bootstrap-sass (= 2.3.2.0)
   capybara (= 2.1.0)

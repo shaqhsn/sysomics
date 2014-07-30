@@ -24,10 +24,7 @@
     <%= f.label :publication_id %><br>
     <%= f.number_field :publication_id %>
   </div>
-  <div class="field">
-    <%= f.label :file_id %><br>
-    <%= f.number_field :file_id %>
-  </div>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -46,12 +43,14 @@
   </div>
   
   
+ <%= f.fields_for :assets do |p| %>
+     <div class="field">
+       <%= p.label :attachment %><br>
+       <%= p.file_field :attachment,name: "assets[attachment][]" %>
 
-    <div class="field">
+     </div>
+   <% end %>
 
-    <%= f.label :attachment %>
-    <%= f.file_field :attachment %>
-    </div>
 
   
   <div class="actions">
