@@ -14,11 +14,20 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
+<<<<<<< HEAD
    #	 "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
 #'/c3se/users/seyeho/uploads_from_sysomics'
   #   "c3se/users/seyeho/uploads_from_sysomics/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
 
   
+=======
+   # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  '/c3se/users/seyeho/uploads_from_sysomics'
+<<<<<<< HEAD
+  
+=======
+>>>>>>> 9648afbcb718e0b9e3960ce3d2aeffa75291a00d
+>>>>>>> d85125b6bf81b08cdbd04e250997522d38d4bd88
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
