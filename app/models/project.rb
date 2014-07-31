@@ -8,7 +8,8 @@ class Project < ActiveRecord::Base
 	has_many :folders
 	validates :title, length: { maximum: 150 } ,uniqueness: true, presence: true
 
-	validates :summary, length: { maximum: 1000 },uniqueness: true, presence: true
+	validates :summary, presence: true
+	
 
 	validates :user_id, presence: true
 

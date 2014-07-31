@@ -4,21 +4,11 @@ class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 
-<<<<<<< HEAD
 	
 	
-	belongs_to :projects
 	has_many :assets  
-=======
-<<<<<<< HEAD
-	
-	
->>>>>>> d85125b6bf81b08cdbd04e250997522d38d4bd88
+
 	belongs_to :projects
-	has_many :assets  
-=======
-	belongs_to :projects
->>>>>>> 9648afbcb718e0b9e3960ce3d2aeffa75291a00d
 	validates :first_name, length: { maximum: 45 },presence: true
 	validates :last_name, length: { maximum: 45 },presence: true
 	validates :username, length: { maximum: 45 },presence: true ,uniqueness: true
@@ -29,19 +19,7 @@ class User < ActiveRecord::Base
 	validates_confirmation_of :password
 	def User.new_remember_token
     SecureRandom.urlsafe_base64
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> d85125b6bf81b08cdbd04e250997522d38d4bd88
-    
-    
-    
-    
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9648afbcb718e0b9e3960ce3d2aeffa75291a00d
->>>>>>> d85125b6bf81b08cdbd04e250997522d38d4bd88
+
   end
 
   def User.digest(token)

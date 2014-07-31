@@ -35,8 +35,6 @@
        <% end %>
        
         <td><%= link_to  'download',sftp_download_url(project) %></td>
-        <td><%= link_to  project.attachment.filename,download_url(project,project.attachment.url)%></td>
-        <td><%= project.attachment %></td>
 
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>

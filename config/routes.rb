@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   resources :folders
 
   resources :project_attachments
 
-=======
-<<<<<<< HEAD
   resources :assets
 
-=======
->>>>>>> 9648afbcb718e0b9e3960ce3d2aeffa75291a00d
->>>>>>> d85125b6bf81b08cdbd04e250997522d38d4bd88
   resources :public_repositories
 
   resources :publications
@@ -95,15 +89,12 @@ Rails.application.routes.draw do
 
 #this route is for file downloads  
 #match "assets/get/:id" => "assets#get", :as => "download" ,   via: 'get'
-<<<<<<< HEAD
 #match 'projects/get/:id' => 'projects#get', :as => 'download_sftp' 
 #match 'projects/get/:id'=>'download_sftp'
   #  get 'projects/get/:id' => "projects#get", as: 'download_sftp'
     
 get 'projects/:id/download' => 'projects#download', :as => 'sftp_download'
-=======
-match 'projects/get/:id' => 'projects#get', :as => 'download' ,   via: 'get'
->>>>>>> d85125b6bf81b08cdbd04e250997522d38d4bd88
+
 
 get  "browse/:folder_id" => "project#browse", :as => "browse"
 #for creating folders insiide another folder 
