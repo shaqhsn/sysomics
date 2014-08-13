@@ -23,10 +23,15 @@
     <%= f.label :data_set_id %><br>
     <%= f.select :data_set_id, options_for_select(DataSet.all.map{|s|[s.name, s.id]}) %>
   </div>
-  <div class="field">
-    <%= f.label :file_id %><br>
-    <%= f.number_field :file_id %>
-  </div>
+  
+   <%= f.fields_for :assets do |p| %>
+     <div class="field">
+       <%= p.label :attachment %><br>
+       <%= p.file_field :attachment,name: "assets[attachment][]" %>
+
+     </div>
+   <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

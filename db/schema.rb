@@ -11,16 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731084801) do
+ActiveRecord::Schema.define(version: 20140813132935) do
 
   create_table "assets", force: true do |t|
     t.string  "attachment"
-    t.integer "size"
-    t.integer "project_id"
-    t.integer "folder_id"
+    t.integer "user_id"
+    t.integer "assetable_id"
+    t.string  "assetable_type"
   end
-
-  add_index "assets", ["folder_id"], name: "index_assets_on_folder_id"
 
   create_table "cell_types", force: true do |t|
     t.string   "name"
@@ -38,7 +36,6 @@ ActiveRecord::Schema.define(version: 20140731084801) do
     t.integer  "data_processing_type_id"
     t.integer  "software_id"
     t.integer  "data_set_id"
-    t.integer  "file_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,9 +52,9 @@ ActiveRecord::Schema.define(version: 20140731084801) do
     t.date     "create_date"
     t.string   "name"
     t.string   "comment"
-    t.integer  "file_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "directories", force: true do |t|

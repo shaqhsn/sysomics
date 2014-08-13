@@ -1,4 +1,5 @@
-<%= form_for(@project) do |f| %>
+<%= form_for @project, :html => {:multipart => true} do |f| %>
+
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -20,6 +21,7 @@
     <%= f.label :experiment_id %><br>
    <%= f.select :experiment_id, options_for_select(Experiment.all.map{|s|[s.name, s.id]}) %>
   </div>
+  
   <div class="field">
     <%= f.label :publication_id %><br>
     <%= f.number_field :publication_id %>
@@ -29,18 +31,22 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+  
   <div class="field">
     <%= f.label :summary %><br>
     <%= f.text_field :summary %>
   </div>
+  
   <div class="field">
     <%= f.label :start_date %><br>
     <%= f.date_select :start_date %>
   </div>
+  
   <div class="field">
     <%= f.label :end_date %><br>
     <%= f.date_select :end_date %>
   </div>
+  
   
   
  <%= f.fields_for :assets do |p| %>

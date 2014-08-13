@@ -5,10 +5,10 @@ class ExperimentDetail < ActiveRecord::Base
 			validates :disease,presence: true
 			validates :experiment,presence: true
 
-		belongs_to :samples
-		belongs_to :platforms
-		belongs_to :protocols
-		belongs_to :diseases
-		belongs_to :experiments
+		belongs_to :sample
+		belongs_to :platform
+		belongs_to :protocol
+		belongs_to :disease
+		belongs_to :experiment
 
 end

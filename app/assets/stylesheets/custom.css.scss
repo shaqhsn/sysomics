@@ -39,6 +39,8 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+    margin-top: 70px;
+
 }
 
 h2 {
@@ -50,12 +52,12 @@ h2 {
   color: $grayLight;
 }
 h3 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
+  margin-bottom:20px;
   text-align: center;
-  font-weight: normal;
-  color: white;
+  font-weight: 900;
+  color: Blue;
 }
 p {
   font-size: 1.1em;
@@ -83,12 +85,12 @@ p {
 
 #logo {
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
   font-size: 1.7em;
-  color: white;
+  color: gray;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 2px;
   font-weight: bold;
   line-height: 1;
   &:hover {
@@ -160,3 +162,27 @@ $grayMediumLight: #eaeaea;
   @extend .control-group;
   @extend .error;
 }
+
+/* Adjust Menu (red) text color, (Garamond) font-family, (1.5em) font-size  */
+.navbar .nav > li > a, .navbar .nav > li > a:first-letter,
+.navbar .nav > li.current-menu-item > a, 
+.navbar .nav > li.current-menu-ancestor > a {
+display:        inline;
+font-size:      1em;
+  font-weight: bold;
+
+}
+ 
+/* Adjust Menu colors - Normal */
+.navbar .nav > li > a, .navbar .nav > li > a:first-letter {
+color:          blue;
+text-shadow:    none;
+}
+
+
+ 
+/* Adjust dropdown Menu items (blue) text color & (yellow) shading */
+.dropdown-menu > li > a {
+color:          blue;
+}
+ 

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :folders
-
   resources :project_attachments
 
-  resources :assets
+
+	resources :projects do
+         resources :assets
+    end
+  #resources :assets
 
   resources :public_repositories
 
@@ -93,12 +95,12 @@ Rails.application.routes.draw do
 #match 'projects/get/:id'=>'download_sftp'
   #  get 'projects/get/:id' => "projects#get", as: 'download_sftp'
     
-get 'projects/:id/download' => 'projects#download', :as => 'sftp_download'
+get 'projects/:id/download' => 'projects#download', :as => 'sftp_download_project'
+get 'data_sets/:id/download' => 'data_sets#download', :as => 'sftp_download_data_set'
+get 'data_processings/:id/download' => 'data_processings#download', :as => 'sftp_download_data_processing'
 
 
-get  "browse/:folder_id" => "project#browse", :as => "browse"
-#for creating folders insiide another folder 
-get "browse/:folder_id/new_folder" => "folders#new", :as => "new_sub_folder"
+
   resources :projects
 
   resources :users
