@@ -17,24 +17,18 @@
     <%= f.select :user_id, options_for_select(User.all.map{|s|[s.username, s.id]}) %>
 
   </div>
-  <div class="field">
-    <%= f.label :experiment_id %><br>
-   <%= f.select :experiment_id, options_for_select(Experiment.all.map{|s|[s.name, s.id]}) %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :publication_id %><br>
-    <%= f.number_field :publication_id %>
-  </div>
+
+
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title ,:class=>"input-xxlarge"%>
   </div>
   
   <div class="field">
     <%= f.label :summary %><br>
-    <%= f.text_field :summary %>
+        <%= f.text_area :summary ,:class=>"input-xxlarge",:rows => 6 %>
+
   </div>
   
   <div class="field">

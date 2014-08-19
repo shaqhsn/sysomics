@@ -32,10 +32,26 @@
     <%= f.label :organism_id %><br>
    <%= f.select :organism_id, options_for_select(Organism.all.map{|s|[s.name, s.id]}) %>
   </div>
+  
+   <div class="field">
+    <%= f.label :strain_id %><br>
+   <%= f.select :strain_id, options_for_select(Strain.all.map{|s|[s.name, s.id]}) %>
+  </div>
   <div class="field">
     <%= f.label :molecule_id %><br>
    <%= f.select :molecule_id, options_for_select(Molecule.all.map{|s|[s.name, s.id]}) %>
   </div>
+  
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description ,:class=>"input-xxlarge",:rows => 5 %>
+  </div> 
+  
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes ,:class=>"input-xxlarge",:rows => 4 %>
+  </div> 
+  
   <div class="actions">
     <%= f.submit %>
   </div>

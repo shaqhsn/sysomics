@@ -4,7 +4,7 @@ class DataSet < ActiveRecord::Base
 		validates :create_date, length: { maximum: 100 },presence: true
 
 	belongs_to :data_set_type
-	has_many :data_processings
+	has_many :data_processings,dependent: :destroy
 
 	belongs_to:project
 	has_many :assets,:as => :assetable,dependent: :destroy

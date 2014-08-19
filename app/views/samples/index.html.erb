@@ -8,6 +8,7 @@
       <th>Cell type</th>
       <th>Tissue</th>
       <th>Organism</th>
+      <th>Strain</th>
       <th>Molecule</th>
 
       <th colspan="3"></th>
@@ -22,6 +23,7 @@
         <td><%= sample.cell_type.name%></td>
         <td><%= sample.tissue.name %></td>
         <td><%= sample.organism.name %></td>
+        <td><%= sample.strain.name %></td>
         <td><%= sample.molecule.name %></td>
         <td><%= link_to 'Show', sample %></td>
         <td><%= link_to 'Edit', edit_sample_path(sample) %></td>

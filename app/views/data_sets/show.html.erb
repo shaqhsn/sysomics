@@ -1,13 +1,15 @@
+<h1>Show data set </h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Data set type:</strong>
-  <%= @data_set.data_set_type_id %>
+  <%= @data_set.data_set_type.name%>
 </p>
 
 <p>
   <strong>Project:</strong>
-  <%= @data_set.project_id %>
+  <%= @data_set.project.title %>
 </p>
 
 <p>

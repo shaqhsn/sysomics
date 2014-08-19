@@ -1,7 +1,7 @@
 <%= form_for(@data_processing_type) do |f| %>
   <% if @data_processing_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@data_processing_type.errors.count, "error") %> prohibited this data_processing_type from being saved:</h2>
+      <h2><%= pluralize(@data_processing_type.errors.count, "error") %> prohibited this data_processing method from being saved:</h2>
 
       <ul>
       <% @data_processing_type.errors.full_messages.each do |message| %>
@@ -16,6 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create analysis method" %>
+
   </div>
 <% end %>

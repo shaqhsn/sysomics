@@ -73,10 +73,10 @@ class DataProcessingsController < ApplicationController
            @assets =  @data_processing.assets
       if @data_processing 
            @assets.each do|asset|
-        	    Net::SFTP.start('glenn.c3se.chalmers.se', 'crap', :password => 'crap') do |sftp|
+        	    Net::SFTP.start('glenn.c3se.chalmers.se', 'user', :password => 'password') do |sftp|
 				file_name=File.basename(asset.attachment.url)
 				file_url=File.basename(asset.attachment.url)
-				filepath="crap/uploads_from_sysomics/uploads"
+				filepath=".../uploads"
 				download_path=@data_processing.data_set.project.user.id.to_s+'/'+asset.id.to_s
 				file_partly=File.join(filepath,download_path )
 				file=File.join(file_partly,file_name)
@@ -99,6 +99,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def data_processing_params
-      params.require(:data_processing).permit(:data_processing_type_id, :software_id, :data_set_id,assets_attributes: [:id, :project_id, :attachment,:user_id,:assetable_id,:assetable_type,:_destroy] )
+      params.require(:data_processing).permit(:data_processing_type_id, :software_id, :data_set_id, :command,:note,:description,assets_attributes: [:id, :project_id, :attachment,:user_id,:assetable_id,:assetable_type,:_destroy] )
     end
 end

@@ -1,11 +1,13 @@
-<h1>Listing data_processings</h1>
+<h1>Listing analysis</h1>
 
 <table class="table table-striped table-bordered table-condensed">  <thead>
     <tr>
-      <th>Data processing type</th>
+      <th>Analysis method</th>
       <th>Software</th>
       <th>Data set</th>
-      <th>File</th>
+      <th>Attachment</th>
+      <th>Size</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,6 +17,7 @@
       <tr>
         <td><%= data_processing.data_processing_type.name %></td>
         <td><%= data_processing.software.name %></td>
+        <td><%= data_processing.command %></td>
         <td><%= data_processing.data_set.name %></td>
         <% data_processing.assets.each do |asset| %>
           <% if ! asset.nil? %>
@@ -33,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Data processing', new_data_processing_path %>
+<%= link_to 'New Analysis', new_data_processing_path %>

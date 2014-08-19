@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :strains
+
   resources :project_attachments
 
 
@@ -13,8 +15,6 @@ Rails.application.routes.draw do
 
   resources :data_sets
 
-  resources :software_parameters
-
   resources :softwares
 
   resources :data_processings
@@ -22,8 +22,6 @@ Rails.application.routes.draw do
   resources :data_processing_types
 
   resources :data_set_types
-
-  resources :experiments
 
   resources :experiment_details
 
@@ -62,7 +60,6 @@ Rails.application.routes.draw do
   match '/new_project',  to: 'projects#new',            via: 'get'
   match '/projects',  to: 'projects#index',            via: 'get'
   match '/users',  to: 'users#index',            via: 'get'
-  match '/experiments',  to: 'experiments#index', via: 'get'
   match '/samples',  to: 'samples#index',            via: 'get'
   match '/organisms',  to: 'organisms#index',            via: 'get'
   match '/protocols',  to: 'protocols#index',            via: 'get'
@@ -71,11 +68,12 @@ Rails.application.routes.draw do
   match '/platforms',  to: 'platforms#index',            via: 'get'
   match '/tissues',  to: 'tissues#index',            via: 'get'
   match '/diseases',  to: 'diseases#index',            via: 'get'
+  match '/strains',  to: 'strains#index',            via: 'get'
+
 
   match '/data_set_types',  to: 'data_set_types#index',            via: 'get'
   match '/data_sets',  to: 'data_sets#index',            via: 'get'
   match '/softwares',  to: 'softwares#index',            via: 'get'
-  match '/software_parameters',  to: 'software_parameters#index',            via: 'get'
   match '/data_processings',  to: 'data_processings#index',            via: 'get'
   match '/data_processing_types',  to: 'data_processing_types#index',            via: 'get'
 

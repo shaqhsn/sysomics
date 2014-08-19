@@ -11,13 +11,24 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.label :project_id %><br>
+        <%= f.collection_select(:project_id,Project.all,:id, :title) %>
+  </div>	
   <div class="field">
     <%= f.label :public_repository_id %><br>
-    <%= f.number_field :public_repository_id %>
+    <%= f.collection_select(:public_repository_id,PublicRepository.all,:id, :name) %>
+
   </div>
   <div class="field">
     <%= f.label :DOI %><br>
     <%= f.text_field :DOI %>
+  </div>
+  
+   <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
   </div>
   <div class="actions">
     <%= f.submit %>

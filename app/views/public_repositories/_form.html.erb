@@ -1,7 +1,7 @@
 <%= form_for(@public_repository) do |f| %>
   <% if @public_repository.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@public_repository.errors.count, "error") %> prohibited this public_repository from being saved:</h2>
+      <h2><%= pluralize(@public_repository.errors.count, "error") %> prohibited this public repository from being saved:</h2>
 
       <ul>
       <% @public_repository.errors.full_messages.each do |message| %>
@@ -14,6 +14,7 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+    
   </div>
   <div class="field">
     <%= f.label :url %><br>

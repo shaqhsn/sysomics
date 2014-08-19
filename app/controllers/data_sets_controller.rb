@@ -76,10 +76,10 @@ class DataSetsController < ApplicationController
            @assets =  @data_sets.assets
       if @data_sets 
            @assets.each do|asset|
-        	    Net::SFTP.start('glenn.c3se.chalmers.se', 'crap', :password => 'crap') do |sftp|
+        	    Net::SFTP.start('glenn.c3se.chalmers.se', 'user', :password => 'password') do |sftp|
 				file_name=File.basename(asset.attachment.url)
 				file_url=File.basename(asset.attachment.url)
-				filepath="crap/uploads_from_sysomics/uploads"
+				filepath=".../uploads"
 				download_path=@data_sets.project.user.id.to_s+'/'+asset.id.to_s
 				file_partly=File.join(filepath,download_path )
 				file=File.join(file_partly,file_name)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813132935) do
+ActiveRecord::Schema.define(version: 20140819123230) do
 
   create_table "assets", force: true do |t|
     t.string  "attachment"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 20140813132935) do
     t.integer  "data_set_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
+    t.string   "command"
+    t.string   "note"
   end
 
   create_table "data_set_types", force: true do |t|
@@ -75,17 +78,12 @@ ActiveRecord::Schema.define(version: 20140813132935) do
     t.integer  "platform_id"
     t.integer  "protocol_id"
     t.integer  "disease_id"
-    t.integer  "experiment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "experiments", force: true do |t|
     t.string   "name"
     t.string   "comment"
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "project_id"
   end
 
   create_table "file_repository_tables", force: true do |t|
@@ -122,8 +120,6 @@ ActiveRecord::Schema.define(version: 20140813132935) do
 
   create_table "projects", force: true do |t|
     t.integer  "user_id"
-    t.integer  "experiment_id"
-    t.integer  "publication_id"
     t.string   "title"
     t.string   "summary"
     t.date     "start_date"
@@ -151,6 +147,8 @@ ActiveRecord::Schema.define(version: 20140813132935) do
     t.string   "DOI"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
+    t.string   "url"
   end
 
   create_table "samples", force: true do |t|
@@ -162,6 +160,9 @@ ActiveRecord::Schema.define(version: 20140813132935) do
     t.integer  "molecule_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "strain_id"
+    t.string   "description"
+    t.string   "notes"
   end
 
   create_table "software_parameters", force: true do |t|
@@ -179,6 +180,12 @@ ActiveRecord::Schema.define(version: 20140813132935) do
     t.datetime "updated_at"
   end
 
+  create_table "strains", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tissues", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -192,10 +199,10 @@ ActiveRecord::Schema.define(version: 20140813132935) do
     t.date     "start_date"
     t.date     "end_date"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

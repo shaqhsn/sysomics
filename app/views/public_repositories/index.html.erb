@@ -13,7 +13,7 @@
     <% @public_repositories.each do |public_repository| %>
       <tr>
         <td><%= public_repository.name %></td>
-        <td><%= public_repository.url %></td>
+        <td><%= link_to public_repository.url, public_repository.url %></td>
         <td><%= public_repository.record_id %></td>
         <td><%= link_to 'Show', public_repository %></td>
         <td><%= link_to 'Edit', edit_public_repository_path(public_repository) %></td>

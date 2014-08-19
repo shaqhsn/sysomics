@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 	
 	
 	has_many :assets ,dependent: :destroy
-	has_many :projects
+	has_many :projects ,dependent: :destroy
 
 	
 	validates :first_name, length: { maximum: 45 },presence: true

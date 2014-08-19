@@ -1,4 +1,10 @@
+<h1>Show publication</h1>
+
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Project</strong>
+  <%= @publication.project.title %>
+</p>
 
 <p>
   <strong>Public repository:</strong>
@@ -8,6 +14,11 @@
 <p>
   <strong>Doi:</strong>
   <%= @publication.DOI %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <%= @publication.url %>
 </p>
 
 <%= link_to 'Edit', edit_publication_path(@publication) %> |

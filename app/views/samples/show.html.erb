@@ -1,3 +1,5 @@
+<h1>Show sample</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,23 +14,33 @@
 
 <p>
   <strong>Cell type:</strong>
-  <%= @sample.cell_type_id %>
+  <%= @sample.cell_type.name %>
 </p>
 
 <p>
   <strong>Tissue:</strong>
-  <%= @sample.tissue_id %>
+  <%= @sample.tissue.name %>
 </p>
 
 <p>
   <strong>Organism:</strong>
-  <%= @sample.organism_id %>
+  <%= @sample.organism.name %>
 </p>
-
+<p>
+  <strong>Strain:</strong>
+  <%= @sample.strain.name %>
+</p>
 <p>
   <strong>Molecule:</strong>
-  <%= @sample.molecule_id %>
+  <%= @sample.molecule.name %>
 </p>
-
+<p>
+  <strong>Description:</strong>
+  <%= @sample.description %>
+</p
+<p>
+  <strong>Notes:</strong>
+  <%= @sample.notes %>
+</p
 <%= link_to 'Edit', edit_sample_path(@sample) %> |
 <%= link_to 'Back', samples_path %>

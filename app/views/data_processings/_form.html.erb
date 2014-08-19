@@ -1,7 +1,7 @@
 <%= form_for(@data_processing) do |f| %>
   <% if @data_processing.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@data_processing.errors.count, "error") %> prohibited this data_processing from being saved:</h2>
+      <h2><%= pluralize(@data_processing.errors.count, "error") %> prohibited this analysis from being saved:</h2>
 
       <ul>
       <% @data_processing.errors.full_messages.each do |message| %>
@@ -10,20 +10,39 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :data_processing_type_id %><br>
-    <%= f.select :data_processing_type_id, options_for_select(DataProcessingType.all.map{|s|[s.name, s.id]}) %>
+    <%= f.label :data_set_id %><br>
+    <%= f.collection_select(:data_set_id,DataSet.all,:id, :name) %>
+   
+  </div>
+  <div class="field">
+    <%= f.label :analysis_method %><br>
+    <%= f.collection_select(:data_processing_type_id,DataProcessingType.all,:id, :name) %>
   </div>
   <div class="field">
   	<%= f.label :software %><br>
-    <%= f.select :software_id, options_for_select(Software.all.map{|s|[s.name, s.id]}) %>
+    <%= f.collection_select(:software_id,Software.all,:id, :name) %>
+  </div>
+   <div class="field">
+  	<%= f.label :version %><br>
+    <%= f.collection_select( :software_id, Software.all, :id, :version) %>
+
+
+
   </div>
   <div class="field">
-    <%= f.label :data_set_id %><br>
-    <%= f.select :data_set_id, options_for_select(DataSet.all.map{|s|[s.name, s.id]}) %>
+  	<%= f.label :software_command %><br>
+    <%= f.text_field :command, :class => "commands" %>
   </div>
-  
+
+    <div class="field">
+  	<%= f.label :description %><br>
+    <%= f.text_area :description ,:class=>"input-xxlarge",:rows => 6 %>
+  </div>
+    <div class="field">
+  	<%= f.label :note %><br>
+    <%= f.text_area :note,:class=>"input-xlarge",:rows => 5 %>
+  </div>
    <%= f.fields_for :assets do |p| %>
      <div class="field">
        <%= p.label :attachment %><br>
@@ -33,6 +52,6 @@
    <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Analysis" %>
   </div>
 <% end %>

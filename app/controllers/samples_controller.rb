@@ -69,6 +69,6 @@ class SamplesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sample_params
-      params.require(:sample).permit(:name, :title, :cell_type_id, :tissue_id, :organism_id, :molecule_id)
+      params.require(:sample).permit(:name, :title, :cell_type_id, :tissue_id, :organism_id, :molecule_id,:strain_id)
     end
 end

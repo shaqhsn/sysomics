@@ -87,11 +87,11 @@ class ProjectsController < ApplicationController
            @assets.each do|asset|
 				file_name=File.basename(asset.attachment.url)
 				file_url=File.basename(asset.attachment.url)
-				filepath="/crap/uploads_from_sysomics/uploads"
+				filepath=".../uploads"
 				download_path=@project.user.id.to_s+'/'+asset.id.to_s
 				file_partly=File.join(filepath,download_path )
 				file=File.join(file_partly,file_name)
-				Net::SFTP.start('glenn.c3se.chalmers.se', 'crap', :password => 'crap') do |sftp|
+				Net::SFTP.start('glenn.c3se.chalmers.se', 'user', :password => 'password') do |sftp|
         		data = sftp.download!(file)
         		#then again, use the "send_data" method to send the above binary "data" as file. 
         		send_data data, :filename =>file_name 	
@@ -112,7 +112,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:user_id, :experiment_id, :publication_id, :title, :summary, :start_date, :end_date,assets_attributes: [:id, :project_id, :attachment,:user_id,:assetable_id,:assetable_type,:_destroy] )
+      params.require(:project).permit(:user_id, :title, :summary, :start_date, :end_date,assets_attributes: [:id, :project_id, :attachment,:user_id,:assetable_id,:assetable_type,:_destroy] )
     end
     
 end

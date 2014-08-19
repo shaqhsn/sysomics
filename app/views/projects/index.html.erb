@@ -3,8 +3,6 @@
   <thead>
     <tr>
       <th>User</th>
-      <th>Experiment</th>
-      <th>Publication</th>
       <th>Title</th>
       <th>Summary</th>
       <th>Start date</th>
@@ -21,8 +19,6 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.user.username %></td>
-        <td><%= project.experiment.name %></td>
-        <td><%= project.publication_id %></td>
         <td><%= project.title %></td>
         <td><%= project.summary %></td>
         <td><%= project.start_date %></td>
