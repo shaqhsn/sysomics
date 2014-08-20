@@ -10,10 +10,7 @@
       </ul>
     </div>
   <% end %>
-	 <div class="field">
-    <%= f.label :project_id %><br>
-    <%= f.select :project_id, options_for_select(Project.all.map{|s|[s.title, s.id]}) %>
-  </div>
+  
 
   
  
@@ -24,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :platform_id %><br>
-           <%= f.select :platform_id, options_for_select(Platform.all.map{|s|[s.name, s.id]}) %>
+    <%= f.select :platform_id, options_for_select(Platform.all.map{|s|[s.name, s.id]}) %>
 
   </div>
   <div class="field">

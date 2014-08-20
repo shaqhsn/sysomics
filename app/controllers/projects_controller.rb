@@ -8,9 +8,12 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     #@projects = Project.includes(:assets)#to avoid N+1 queries in your view,
-    @projects=Project.all
-        @assets = Asset.joins(:project)
-
+    if current_user
+    @projects=current_user.projects
+        @assets = current_user.assets.joins(:project)
+        else
+       redirect_to signin_path, notice: 'Please sign in first.' 
+		end	
   end
 
   # GET /projects/1
@@ -34,7 +37,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.new(project_params)
 	#@project.assets.build
     respond_to do |format|
         if @project.save
@@ -81,7 +84,7 @@ class ProjectsController < ApplicationController
 
   def download
    # project = @project.find_by_id(params[:id])
-          @project =  Project.find(params[:id])
+          @project =  current_user.projects.find(params[:id])
            @assets =  @project.assets
       if @project 
            @assets.each do|asset|
@@ -107,7 +110,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
+      @project = current_user.projects.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

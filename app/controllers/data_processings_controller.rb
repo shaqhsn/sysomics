@@ -76,7 +76,7 @@ class DataProcessingsController < ApplicationController
         	    Net::SFTP.start('glenn.c3se.chalmers.se', 'user', :password => 'password') do |sftp|
 				file_name=File.basename(asset.attachment.url)
 				file_url=File.basename(asset.attachment.url)
-				filepath=".../uploads"
+				filepath=".../uploads_from_sysomics7uploads"
 				download_path=@data_processing.data_set.project.user.id.to_s+'/'+asset.id.to_s
 				file_partly=File.join(filepath,download_path )
 				file=File.join(file_partly,file_name)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819123230) do
+ActiveRecord::Schema.define(version: 20140820130919) do
 
   create_table "assets", force: true do |t|
     t.string  "attachment"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 20140819123230) do
     t.string   "name"
     t.string   "comment"
     t.string   "description"
-    t.integer  "project_id"
   end
 
   create_table "file_repository_tables", force: true do |t|
@@ -163,6 +162,7 @@ ActiveRecord::Schema.define(version: 20140819123230) do
     t.integer  "strain_id"
     t.string   "description"
     t.string   "notes"
+    t.integer  "project_id"
   end
 
   create_table "software_parameters", force: true do |t|

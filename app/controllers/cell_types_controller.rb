@@ -4,7 +4,11 @@ class CellTypesController < ApplicationController
   # GET /cell_types
   # GET /cell_types.json
   def index
-    @cell_types = CellType.all
+   if current_user
+    @cell_types = current_user.cell_types       
+        else
+       redirect_to signin_path, notice: 'Please sign in first.' 
+		end	
   end
 
   # GET /cell_types/1
@@ -14,7 +18,7 @@ class CellTypesController < ApplicationController
 
   # GET /cell_types/new
   def new
-    @cell_type = CellType.new
+    @cell_type = current_user.cell_types
   end
 
   # GET /cell_types/1/edit
@@ -24,7 +28,7 @@ class CellTypesController < ApplicationController
   # POST /cell_types
   # POST /cell_types.json
   def create
-    @cell_type = CellType.new(cell_type_params)
+    @cell_type = current_user.cell_types.new(cell_type_params)
 
     respond_to do |format|
       if @cell_type.save
@@ -64,7 +68,7 @@ class CellTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cell_type
-      @cell_type = CellType.find(params[:id])
+      @cell_type = current_user.cell_types.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

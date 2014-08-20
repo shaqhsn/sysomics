@@ -14,11 +14,8 @@
 
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.select :user_id, options_for_select(User.all.map{|s|[s.username, s.id]}) %>
-
+   <h4><%= current_user.username %><h4/>  
   </div>
-
-
 
   <div class="field">
     <%= f.label :title %><br>
