@@ -33,8 +33,6 @@ Rails.application.routes.draw do
 
   resources :molecules
 
-  resources :cell_types
-
   resources :protocols
 
   resources :tissues
@@ -97,7 +95,7 @@ get 'projects/:id/download' => 'projects#download', :as => 'sftp_download_projec
 get 'data_sets/:id/download' => 'data_sets#download', :as => 'sftp_download_data_set'
 get 'data_processings/:id/download' => 'data_processings#download', :as => 'sftp_download_data_processing'
 
-
+get '*unmatched_route', :to => 'application#raise_not_found!'
 
   resources :projects
 

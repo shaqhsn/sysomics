@@ -12,10 +12,7 @@
   <%= @user.last_name %>
 </p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+
 
 <p>
   <strong>Start date:</strong>
@@ -31,6 +28,10 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<p>
+  <strong>Role:</strong>
+  <%= @user.role %>
+</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user)if current_user.is_admin?%> |
 <%= link_to 'Back', users_path %>

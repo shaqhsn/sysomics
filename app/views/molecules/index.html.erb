@@ -12,7 +12,7 @@
       <tr>
         <td><%= molecule.name %></td>
         <td><%= link_to 'Show', molecule %></td>
-        <td><%= link_to 'Edit', edit_molecule_path(molecule) %></td>
+        <td><%= link_to 'Edit', edit_molecule_path(molecule)  %></td>
         <td><%= link_to 'Destroy', molecule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -21,4 +21,4 @@
 
 <br>
 
-<%= link_to 'New Molecule', new_molecule_path %>
+<%= link_to 'New Molecule', new_molecule_path ,:class => "blue btn " %>

@@ -18,10 +18,10 @@ class AttachmentUploader < CarrierWave::Uploader::Base
 #'/c3se/users/seyeho/uploads_from_sysomics'
   #   "c3se/users/seyeho/uploads_from_sysomics/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
 
-    "uploads/#{model.user.id.to_s.underscore}/#{model.id}"
+"uploads/#{model.user.id.to_s.underscore}/#{model.id}"
 
 	 #   "#{Rails.env}/#{model.id}"
-
+#
    # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   #'/c3se/users/seyeho/uploads_from_sysomics'
 

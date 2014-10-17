@@ -1,11 +1,18 @@
 class OrganismsController < ApplicationController
   before_action :set_organism, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only , only: [ :edit, :update, :destroy, :create,:new ]
+
 
   # GET /organisms
   # GET /organisms.json
   def index
     @organisms = Organism.all
-  end
+        respond_to do |format|
+            format.html
+            format.csv { send_data @organisms.to_csv }
+            format.xls # { send_data @organisms(col_sep: "\t") }
+        end
+    end
 
   # GET /organisms/1
   # GET /organisms/1.json

@@ -1,6 +1,8 @@
 <div class="center hero-unit">
           <br>
           <br>
+         <%= link_to image_tag("sysomics.jpg", alt: "sysomics" ), root_path ,id: "logo" %>
+       
   <h1>Welcome,</h1>    
             <% if signed_in? %>
   <h3> <%= current_user.first_name %>  <%= current_user.last_name %>    </h3>

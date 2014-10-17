@@ -1,5 +1,7 @@
 class PublicRepositoriesController < ApplicationController
   before_action :set_public_repository, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only , only: [ :edit, :update, :destroy, :create,:new ]
+
 
   # GET /public_repositories
   # GET /public_repositories.json

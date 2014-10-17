@@ -1,5 +1,6 @@
 class PlatformsController < ApplicationController
   before_action :set_platform, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only , only: [ :edit, :update, :destroy, :create,:new ]
 
   # GET /platforms
   # GET /platforms.json

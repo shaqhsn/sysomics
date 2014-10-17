@@ -19,7 +19,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.user.username %></td>
+        <td><%= project.user.first_name%></td>
         <td><%= project.title %></td>
         <td><%= project.summary %></td>
         <td><%= project.start_date %></td>
@@ -36,16 +36,12 @@
 
         <td><%= link_to  'Download',sftp_download_project_url(project) %></td>
         <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_project_path(project)  %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<li><%= link_to 'New Project', new_project_path %><li>
- 	
- 
-
+<%= link_to 'New Project', new_project_path  ,:class => "blue btn " %>

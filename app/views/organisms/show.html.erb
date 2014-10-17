@@ -6,5 +6,5 @@
   <%= @organism.name %>
 </p>
 
-<%= link_to 'Edit', edit_organism_path(@organism) %> |
+<%= link_to 'Edit', edit_organism_path(@organism) if current_user.is_admin? %> |
 <%= link_to 'Back', organisms_path %>

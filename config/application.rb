@@ -3,6 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+require 'csv'
 
 module Sysomics
   class Application < Rails::Application

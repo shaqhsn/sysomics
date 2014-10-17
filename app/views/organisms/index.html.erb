@@ -14,7 +14,7 @@
         <td><%= organism.name %></td>
         <td><%= link_to 'Show', organism %></td>
         <td><%= link_to 'Edit', edit_organism_path(organism) %></td>
-        <td><%= link_to 'Destroy', organism, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', organism, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,9 @@
 
 <br>
 
-<%= link_to 'New Organism', new_organism_path %>
+<%= link_to 'New Organism', new_organism_path,:class => "blue btn " %>
+<p>
+  Download:
+  <%= link_to "CSV", organisms_path(format: "csv") %> |
+  <%= link_to "Excel", organisms_path(format: "xls") %>
+</p>

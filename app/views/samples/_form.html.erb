@@ -11,47 +11,55 @@
     </div>
   <% end %>
    <div class="field">
-    <%= f.label :project_id %><br>
-        <%= f.collection_select(:project_id,Project.all,:id, :title) %>
-  </div>		
+    <%= f.label :project_id %>
+           <%= f.select( :project_id,  Project.all.map {|u| [u.title,u.id]}, {:include_blank => true},{:style => "min-width: 600px;"}) %>
+
+  </div>	
+  	   <div class="mandatory">
+
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name ,:class=>"input-xlarge"%>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title ,:class=>"input-xlarge"%>
+  </div>
+    <div class="field">
+    <%= f.label :number_of_samples %>
+    <%= f.text_field :number_of_samples ,:class=>"input-small"  %>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :organism_id %>
+   <%= f.select( :organism_id,  Organism.all.map {|u| [u.name,u.id]}, {:include_blank => true}) %>
+
   </div>
   <div class="field">
-    <%= f.label :cell_type_id %><br>
-   <%= f.select :cell_type_id, options_for_select(CellType.all.map{|s|[s.name, s.id]}) %>
-    
+    <%= f.label :strain_id %> 
+ 
+  <%= f.select( :strain_id,  Strain.all.map {|u| [u.name,u.id]}, {:include_blank => true}) %>
+
   </div>
   <div class="field">
-    <%= f.label :tissue_id %><br>
-   <%= f.select :tissue_id, options_for_select(Tissue.all.map{|s|[s.name, s.id]}) %>
+    <%= f.label :tissue_id ,'Tissue/CellType' %>
+     <%= f.select( :tissue_id,  Tissue.all.map {|u| [u.name,u.id]}, {:include_blank => true}) %>
+
   </div>
   <div class="field">
-    <%= f.label :organism_id %><br>
-   <%= f.select :organism_id, options_for_select(Organism.all.map{|s|[s.name, s.id]}) %>
+    <%= f.label :molecule_id %>
+        <%= f.select( :molecule_id,  Molecule.all.map {|u| [u.name,u.id]}, {:include_blank => true}) %>
+
   </div>
   
-   <div class="field">
-    <%= f.label :strain_id %><br>
-   <%= f.select :strain_id, options_for_select(Strain.all.map{|s|[s.name, s.id]}) %>
-  </div>
   <div class="field">
-    <%= f.label :molecule_id %><br>
-   <%= f.select :molecule_id, options_for_select(Molecule.all.map{|s|[s.name, s.id]}) %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description ,:class=>"input-xxlarge",:rows => 5 %>
   </div> 
   
   <div class="field">
-    <%= f.label :notes %><br>
+    <%= f.label :notes %>
     <%= f.text_area :notes ,:class=>"input-xxlarge",:rows => 4 %>
   </div> 
   

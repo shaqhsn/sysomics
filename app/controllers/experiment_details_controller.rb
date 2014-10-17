@@ -4,7 +4,12 @@ class ExperimentDetailsController < ApplicationController
   # GET /experiment_details
   # GET /experiment_details.json
   def index
-    @experiment_details = ExperimentDetail.all
+      if current_user
+          @experiment_details = current_user.experiment_details.all
+
+      else
+          redirect_to signin_path, notice: 'Please sign in first.'
+      end
   end
 
   # GET /experiment_details/1
@@ -24,7 +29,7 @@ class ExperimentDetailsController < ApplicationController
   # POST /experiment_details
   # POST /experiment_details.json
   def create
-    @experiment_detail = ExperimentDetail.new(experiment_detail_params)
+    @experiment_detail =  current_user.experiment_details.new(experiment_detail_params)
 
     respond_to do |format|
       if @experiment_detail.save
@@ -64,11 +69,13 @@ class ExperimentDetailsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_experiment_detail
-      @experiment_detail = ExperimentDetail.find(params[:id])
+      @experiment_detail =  current_user.experiment_details.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to(experiment_details_url, :notice => 'Access denied to this resource')
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_detail_params
-      params.require(:experiment_detail).permit(:sample_id, :platform_id, :protocol_id, :disease_id ,:name,:comment,:description)
+      params.require(:experiment_detail).permit({ :sample_ids => [] },{ :platform_ids => [] },{ :protocol_ids => [] },:disease_id ,:name,:comment,:description)
     end
 end

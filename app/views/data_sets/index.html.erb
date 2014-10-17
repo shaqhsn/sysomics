@@ -1,6 +1,6 @@
 
 
-<h1>Listing data sets</h1>
+<h1>Listing datasets</h1>
 
 <table class="table table-striped table-bordered table-condensed">
   <thead>
@@ -37,8 +37,8 @@
         <% end %>
         <td><%= link_to  'Download',sftp_download_data_set_url(data_set) %></td>
         <td><%= link_to 'Show', data_set %></td>
-        <td><%= link_to 'Edit', edit_data_set_path(data_set) %></td>
-        <td><%= link_to 'Destroy', data_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_data_set_path(data_set)  %></td>
+        <td><%= link_to 'Destroy', data_set, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -46,4 +46,4 @@
 
 <br>
 
-<%= link_to 'New Data set', new_data_set_path %>
+<%= link_to 'New Data set', new_data_set_path ,:class => "blue btn " %>

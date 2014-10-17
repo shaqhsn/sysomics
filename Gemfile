@@ -52,4 +52,5 @@ gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
 gem 'carrierwave'
 gem 'carrierwave-ftp', :require => 'carrierwave/storage/sftp' # SFTP only
+gem 'railroady'
 

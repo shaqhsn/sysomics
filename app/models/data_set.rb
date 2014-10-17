@@ -7,6 +7,8 @@ class DataSet < ActiveRecord::Base
 	has_many :data_processings,dependent: :destroy
 
 	belongs_to:project
+    belongs_to :user
+
 	has_many :assets,:as => :assetable,dependent: :destroy
 
 end

@@ -1,5 +1,7 @@
 class DiseasesController < ApplicationController
   before_action :set_disease, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only , only: [ :edit, :update, :destroy, :create,:new ]
+
 
   # GET /diseases
   # GET /diseases.json

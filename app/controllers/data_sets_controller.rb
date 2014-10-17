@@ -4,9 +4,11 @@ class DataSetsController < ApplicationController
   # GET /data_sets
   # GET /data_sets.json
   def index
-    @data_sets = DataSet.includes(:assets)#to avoid N+1 queries in your view,
-
-
+      if current_user
+          @data_sets = current_user.data_sets.includes(:assets)#to avoid N+1 queries in your view,
+      else
+          redirect_to signin_path, notice: 'Please sign in first.'
+      end
   end
 
   # GET /data_sets/1
@@ -29,7 +31,7 @@ class DataSetsController < ApplicationController
   # POST /data_sets
   # POST /data_sets.json
   def create
-    @data_set = DataSet.new(data_set_params)
+    @data_set = current_user.data_sets.new(data_set_params)
 
     respond_to do |format|
         if @data_set.save
@@ -76,10 +78,10 @@ class DataSetsController < ApplicationController
            @assets =  @data_sets.assets
       if @data_sets 
            @assets.each do|asset|
-        	    Net::SFTP.start('glenn.c3se.chalmers.se', 'user', :password => 'pass') do |sftp|
+        	    Net::SFTP.start('server', 'user', :password => 'password') do |sftp|
 				file_name=File.basename(asset.attachment.url)
 				file_url=File.basename(asset.attachment.url)
-				filepath="/uploads"
+				filepath="/uploads_from_sysomics/uploads"
 				download_path=@data_sets.project.user.id.to_s+'/'+asset.id.to_s
 				file_partly=File.join(filepath,download_path )
 				file=File.join(file_partly,file_name)
@@ -97,7 +99,9 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_data_set
-      @data_set = DataSet.find(params[:id])
+      @data_set = current_user.dara_sets.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to(data_sets_url, :notice => 'Access denied to this resource')
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

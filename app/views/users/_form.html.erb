@@ -10,39 +10,68 @@
       </ul>
     </div>
   <% end %>
+  <div class="mandatory">
 
   <div class="field">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
+    </div>
+
+    <div class="mandatory">
+
   <div class="field">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
+    </div>
+
+    <div class="mandatory">
+
   <div class="field">
     <%= f.label :start_date %><br>
     <%= f.date_select :start_date %>
   </div>
+    </div>
+
+    <div class="mandatory">
+
   <div class="field">
     <%= f.label :end_date %><br>
     <%= f.date_select :end_date %>
   </div>
+    </div>
+
+    <div class="mandatory">
+
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+    </div>
+
+    <div class="mandatory">
+
     <div class="field">
     <%= f.label :password %><br>
   <%= f.password_field :password %>
   </div>
+    </div>
+
+    <div class="mandatory">
+
     <div class="field">
     <%= f.label :password_confirmation %><br>
   <%= f.password_field :password_confirmation %>
   </div>
+    </div>
+    <div class="mandatory">
+    <div class="field">
+    <%= f.label :role %><br>
+     <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  </div>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

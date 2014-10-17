@@ -90,11 +90,11 @@ class ProjectsController < ApplicationController
            @assets.each do|asset|
 				file_name=File.basename(asset.attachment.url)
 				file_url=File.basename(asset.attachment.url)
-				filepath=".../uploads"
+				filepath=".../uploads_from_sysomics/uploads"
 				download_path=@project.user.id.to_s+'/'+asset.id.to_s
 				file_partly=File.join(filepath,download_path )
 				file=File.join(file_partly,file_name)
-				Net::SFTP.start('glenn.c3se.chalmers.se', 'user', :password => 'password') do |sftp|
+				Net::SFTP.start('server', 'user', :password => 'password') do |sftp|
         		data = sftp.download!(file)
         		#then again, use the "send_data" method to send the above binary "data" as file. 
         		send_data data, :filename =>file_name 	
@@ -111,6 +111,9 @@ end
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = current_user.projects.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to(projects_url, :notice => 'Access denied to this resource')
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

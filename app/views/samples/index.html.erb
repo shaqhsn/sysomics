@@ -7,10 +7,10 @@
       <th>Project</th>
       <th>Name</th>
       <th>Title</th>
-      <th>Cell type</th>
-      <th>Tissue</th>
+      <th>Number of Samples</th>
       <th>Organism</th>
       <th>Strain</th>
+      <th>Tissue/CellType</th>
       <th>Molecule</th>
 
       <th colspan="3"></th>
@@ -23,13 +23,13 @@
       	<td><%= sample.project.title %></td>
         <td><%= sample.name %></td>
         <td><%= sample.title %></td>
-        <td><%= sample.cell_type.name%></td>
-        <td><%= sample.tissue.name %></td>
+        <td><%= sample.number_of_samples %></td>
         <td><%= sample.organism.name %></td>
         <td><%= sample.strain.name %></td>
+        <td><%= sample.tissue.name %></td>
         <td><%= sample.molecule.name %></td>
         <td><%= link_to 'Show', sample %></td>
-        <td><%= link_to 'Edit', edit_sample_path(sample) %></td>
+        <td><%= link_to 'Edit', edit_sample_path(sample)%></td>
         <td><%= link_to 'Destroy', sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -38,5 +38,5 @@
 
 <br>
 
-<%= link_to 'New Sample', new_sample_path %>
+<%= link_to 'New Sample', new_sample_path,:class => "blue btn " %>
 

@@ -1,5 +1,7 @@
 class DataSetTypesController < ApplicationController
   before_action :set_data_set_type, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only , only: [ :edit, :update, :destroy, :create,:new ]
+
 
   # GET /data_set_types
   # GET /data_set_types.json

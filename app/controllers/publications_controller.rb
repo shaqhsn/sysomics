@@ -1,10 +1,15 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /publications
   # GET /publications.json
   def index
-    @publications = Publication.all
+      if current_user
+          @publications = current_user.publications.all
+          else
+          redirect_to signin_path, notice: 'Please sign in first.'
+      end
   end
 
   # GET /publications/1
@@ -24,7 +29,7 @@ class PublicationsController < ApplicationController
   # POST /publications
   # POST /publications.json
   def create
-    @publication = Publication.new(publication_params)
+    @publication = current_user.publications.new(publication_params)
 
     respond_to do |format|
       if @publication.save
@@ -64,7 +69,10 @@ class PublicationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
-      @publication = Publication.find(params[:id])
+      @publication = current_user.publications.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to(data_processings_url, :notice => 'Access denied to this resource')
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

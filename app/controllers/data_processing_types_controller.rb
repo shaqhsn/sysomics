@@ -1,14 +1,13 @@
 class DataProcessingTypesController < ApplicationController
   before_action :set_data_processing_type, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only , only: [ :edit, :update, :destroy, :create,:new ]
+
 
   # GET /data_processing_types
   # GET /data_processing_types.json
   def index
-    if current_user
-    @data_processing_types = current_user.projects.data_processing.data_processing_types
-        else
-       redirect_to signin_path, notice: 'Please sign in first.' 
-		end	
+    @data_processing_types = DataProcessingType.all
+        
   end
 
   # GET /data_processing_types/1
@@ -18,7 +17,7 @@ class DataProcessingTypesController < ApplicationController
 
   # GET /data_processing_types/new
   def new
-    @data_processing_type =  current_user.data_processing_types.new
+    @data_processing_type = DataProcessingType.new
   end
 
   # GET /data_processing_types/1/edit
@@ -28,7 +27,7 @@ class DataProcessingTypesController < ApplicationController
   # POST /data_processing_types
   # POST /data_processing_types.json
   def create
-    @data_processing_type =  current_user.data_processing_types.new(data_processing_type_params)
+    @data_processing_type =  DataProcessingType.new(data_processing_type_params)
 
     respond_to do |format|
       if @data_processing_type.save
@@ -68,7 +67,7 @@ class DataProcessingTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_data_processing_type
-      @data_processing_type =  current_user.data_processing_types.find(params[:id])
+      @data_processing_type =  DataProcessingType.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

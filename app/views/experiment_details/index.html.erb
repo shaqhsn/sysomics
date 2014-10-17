@@ -3,10 +3,10 @@
 
 <table class="table table-striped table-bordered table-condensed">  <thead>
     <tr>
-      <th>Sample</th>
+      <th>Sample(s)</th>
       <th>Name</th>
-      <th>Platform</th>
-      <th>Protocol</th>
+      <th>Platform(s)</th>
+      <th>Protocol(s)</th>
       <th>Disease</th>
       <th colspan="3"></th>
     </tr>
@@ -15,13 +15,13 @@
   <tbody>
     <% @experiment_details.each do |experiment_detail| %>
       <tr>
-        <td><%= experiment_detail.sample.name	 %></td>
+        <td><%= experiment_detail.samples.collect(&:name).join(",")	 %></td>
         <td><%= experiment_detail.name %></td>
-        <td><%= experiment_detail.platform.name %></td>
-        <td><%= experiment_detail.protocol.name %></td>
+        <td><%= experiment_detail.platforms.collect(&:name).join(",") %></td>
+        <td><%= experiment_detail.protocols.collect(&:name).join(",") %></td>
         <td><%= experiment_detail.disease.name %></td>
         <td><%= link_to 'Show', experiment_detail %></td>
-        <td><%= link_to 'Edit', edit_experiment_detail_path(experiment_detail) %></td>
+        <td><%= link_to 'Edit', edit_experiment_detail_path(experiment_detail)  %></td>
         <td><%= link_to 'Destroy', experiment_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Experiment ', new_experiment_detail_path %>
+<%= link_to 'New Experiment ', new_experiment_detail_path ,:class => "blue btn " %>

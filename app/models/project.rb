@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
 
 	has_many :samples,dependent: :destroy
 	has_many :data_sets ,dependent: :destroy
-    has_many :publicaions ,dependent: :destroy
+    has_many :publications ,dependent: :destroy
 
 
 	validates :title, length: { maximum: 150 } ,uniqueness: true, presence: true

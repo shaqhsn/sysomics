@@ -4,7 +4,11 @@ class DataProcessingsController < ApplicationController
   # GET /data_processings
   # GET /data_processings.json
   def index
-    @data_processings = DataProcessing.all
+      if current_user
+          @data_processings = current_user.data_processings.all
+          else
+          redirect_to signin_path, notice: 'Please sign in first.'
+      end
   end
 
   # GET /data_processings/1
@@ -26,7 +30,7 @@ class DataProcessingsController < ApplicationController
   # POST /data_processings
   # POST /data_processings.json
   def create
-    @data_processing = DataProcessing.new(data_processing_params)
+    @data_processing = current_user.data_processings.new(data_processing_params)
 
     respond_to do |format|
         if @data_processing.save
@@ -73,10 +77,10 @@ class DataProcessingsController < ApplicationController
            @assets =  @data_processing.assets
       if @data_processing 
            @assets.each do|asset|
-        	    Net::SFTP.start('glenn.c3se.chalmers.se', 'user', :password => 'password') do |sftp|
+        	    Net::SFTP.start('server', 'user', :password => 'password') do |sftp|
 				file_name=File.basename(asset.attachment.url)
 				file_url=File.basename(asset.attachment.url)
-				filepath=".../uploads_from_sysomics7uploads"
+				filepath="/uploads_from_sysomics/uploads"
 				download_path=@data_processing.data_set.project.user.id.to_s+'/'+asset.id.to_s
 				file_partly=File.join(filepath,download_path )
 				file=File.join(file_partly,file_name)
@@ -94,7 +98,9 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_data_processing
-      @data_processing = DataProcessing.find(params[:id])
+      @data_processing = current_user.data_processings.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to(data_processings_url, :notice => 'Access denied to this resource')
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

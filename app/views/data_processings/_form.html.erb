@@ -10,42 +10,46 @@
       </ul>
     </div>
   <% end %>
+  <div class="mandatory">
   <div class="field">
-    <%= f.label :data_set_id %><br>
+    <%= f.label :data_set_id %>
     <%= f.collection_select(:data_set_id,DataSet.all,:id, :name) %>
-   
+  </div>   
   </div>
+<div class="mandatory">
   <div class="field">
-    <%= f.label :analysis_method %><br>
+    <%= f.label :analysis_method %>
     <%= f.collection_select(:data_processing_type_id,DataProcessingType.all,:id, :name) %>
   </div>
+  </div>
+      <div class="mandatory">
+
   <div class="field">
-  	<%= f.label :software %><br>
+  	<%= f.label :software %>
     <%= f.collection_select(:software_id,Software.all,:id, :name) %>
   </div>
+  </div>
    <div class="field">
-  	<%= f.label :version %><br>
+  	<%= f.label :version %>
     <%= f.collection_select( :software_id, Software.all, :id, :version) %>
-
-
 
   </div>
   <div class="field">
-  	<%= f.label :software_command %><br>
-    <%= f.text_field :command, :class => "commands" %>
+  	<%= f.label :software_command %>
+    <%= f.text_field :command, :class => "commands",:class=>"input-xxlarge",:rows => 4  %>
   </div>
 
     <div class="field">
-  	<%= f.label :description %><br>
+  	<%= f.label :description %>
     <%= f.text_area :description ,:class=>"input-xxlarge",:rows => 6 %>
   </div>
     <div class="field">
-  	<%= f.label :note %><br>
+  	<%= f.label :note %>
     <%= f.text_area :note,:class=>"input-xlarge",:rows => 5 %>
   </div>
    <%= f.fields_for :assets do |p| %>
      <div class="field">
-       <%= p.label :attachment %><br>
+       <%= p.label :attachment %>
        <%= p.file_field :attachment,name: "assets[attachment][]" %>
 
      </div>

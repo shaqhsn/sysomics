@@ -16,14 +16,14 @@
   <strong>Title:</strong>
   <%= @sample.title %>
 </p>
-
 <p>
-  <strong>Cell type:</strong>
-  <%= @sample.cell_type.name %>
+  <strong>Number of Samples:</strong>
+  <%= @sample.number_of_samples %>
 </p>
 
+
 <p>
-  <strong>Tissue:</strong>
+  <strong>Tissue/CellType:</strong>
   <%= @sample.tissue.name %>
 </p>
 
@@ -47,5 +47,5 @@
   <strong>Notes:</strong>
   <%= @sample.notes %>
 </p
-<%= link_to 'Edit', edit_sample_path(@sample) %> |
+<%= link_to 'Edit', edit_sample_path(@sample)  %> |
 <%= link_to 'Back', samples_path %>

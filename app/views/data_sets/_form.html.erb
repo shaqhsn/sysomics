@@ -12,28 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :data_set_type_id %><br>
-    <%= f.select :data_set_type_id, options_for_select(DataSetType.all.map{|s|[s.name, s.id]}) %>
+    <%= f.label :data_set_type_id %>
+    <%= f.select( :data_set_type_id,  DataSetType.all.map {|u| [u.name,u.id]}, {:include_blank => true},{:style => "min-width: 200px;"}) %>
+
   </div>
   <div class="field">
-    <%= f.label :project_id %><br>
-    <%= f.select :project_id, options_for_select(Project.all.map{|s|[s.title, s.id]}) %>
+    <%= f.label :project_id %>
+        <%= f.select( :project_id,  Project.all.map {|u| [u.title,u.id]}, {:include_blank => true},{:style => "min-width: 600px;"}) %>
+
   </div>
+    <div class="mandatory">
+
   <div class="field">
-    <%= f.label :create_date %><br>
-    <%= f.date_select :create_date %>
+    <%= f.label :create_date %>
+    <%= f.date_select(:create_date, options = { order: [:month, :day, :year], prompt: { month: 'Select Month', day: 'Select Day', year: 'Select Year' }, start_year: 2000 }, html_options = { size: 1 }) %>
+
   </div>
+    </div>
+
+    <div class="mandatory">
+
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name ,:class=>"input-xxlarge"%>
   </div>
+    </div>
+
   <div class="field">
-    <%= f.label :comment %><br>
+    <%= f.label :comment %>
     <%= f.text_area :comment ,:class=>"input-xxlarge",:rows => 6 %>
   </div>
   <%= f.fields_for :assets do |p| %>
      <div class="field">
-       <%= p.label :attachment %><br>
+       <%= p.label :attachment %>
        <%= p.file_field :attachment,name: "assets[attachment][]" %>
 
      </div>

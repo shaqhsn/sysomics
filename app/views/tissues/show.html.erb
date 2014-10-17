@@ -7,5 +7,5 @@
   <%= @tissue.name %>
 </p>
 
-<%= link_to 'Edit', edit_tissue_path(@tissue) %> |
+<%= link_to 'Edit', edit_tissue_path(@tissue) if current_user.is_admin? %> |
 <%= link_to 'Back', tissues_path %>

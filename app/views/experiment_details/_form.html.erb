@@ -13,37 +13,67 @@
   
 
   
- 
+<div class="mandatory">
   <div class="field">
-    <%= f.label :sample_id %><br>
-    <%= f.select :sample_id, options_for_select(Sample.all.map{|s|[s.name, s.id]}) %>
+    <%= f.label :samples %>
+     <% Sample.all.each do |sample| %>
+         <li>
+          <%= check_box_tag 'experiment_detail[sample_ids][]', sample.id ,@experiment_detail.sample_ids.include?(sample.id)%>
+          <%= sample.name %>
+        </li>
+    <% end %>
+   </div>
+  </div>
+<div class="mandatory">
+  <div class="field">
+    <%= f.label :platforms %>
+     <% Platform.all.each do |platform| %>
+         <li>
+          <%= check_box_tag 'experiment_detail[platform_ids][]', platform.id ,@experiment_detail.platform_ids.include?(platform.id)%>
+          <%= platform.name %>
+        </li>
+    <% end %>
+   </div>
+  </div>
+  
+<div class="mandatory">
+
+  <div class="field">
+    <%= f.label :protocols %>
+      <% Protocol.all.each do |protocol| %>
+         <li>
+          <%= check_box_tag 'experiment_detail[protocol_ids][]', protocol.id ,@experiment_detail.protocol_ids.include?(protocol.id)%>
+          <%= protocol.name %>
+        </li>
+    <% end %> 
+    </div>
+  </div>
+<div class="mandatory">
+
+  <div class="field">
+    <%= f.label :disease_id %>
+      <%= f.select( :disease_id,  Disease.all.map {|u| [u.name,u.id]}, {:include_blank => true}) %>
+  </div>
 
   </div>
-  <div class="field">
-    <%= f.label :platform_id %><br>
-    <%= f.select :platform_id, options_for_select(Platform.all.map{|s|[s.name, s.id]}) %>
+<div class="mandatory">
 
-  </div>
   <div class="field">
-    <%= f.label :protocol_id %><br>
-    <%= f.select :protocol_id, options_for_select(Protocol.all.map{|s|[s.name, s.id]}) %>
-
-  </div>
-  <div class="field">
-    <%= f.label :disease_id %><br>
-    <%= f.select :disease_id, options_for_select(Disease.all.map{|s|[s.name, s.id]}) %>
-
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name ,:class=>"input-xxlarge" %>
   </div>
+    </div>
+
+        <div class="mandatory">
+
  <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description ,:class=>"input-xxlarge",:rows => 6 %>
   </div>
+    </div>
+
   <div class="field">
-    <%= f.label :comment %><br>
+    <%= f.label :comment %>
     <%= f.text_area :comment ,:class=>"input-xxlarge",:rows => 5%>
   </div>
   <div class="actions">

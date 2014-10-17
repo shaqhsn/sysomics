@@ -7,7 +7,8 @@ class Sample < ActiveRecord::Base
 	belongs_to :cell_type
 	belongs_to :molecule
 	belongs_to :strain
-	
+    belongs_to :user
 	belongs_to:project
+	has_and_belongs_to_many:experiment_detail
 
 end

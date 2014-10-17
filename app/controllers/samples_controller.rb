@@ -4,8 +4,12 @@ class SamplesController < ApplicationController
   # GET /samples
   # GET /samples.json
   def index
-    @samples = Sample.all
-  end
+      if current_user
+          @samples=current_user.samples
+      else
+          redirect_to signin_path, notice: 'Please sign in first.' 
+      end
+    end
 
   # GET /samples/1
   # GET /samples/1.json
@@ -24,7 +28,8 @@ class SamplesController < ApplicationController
   # POST /samples
   # POST /samples.json
   def create
-    @sample = Sample.new(sample_params)
+
+    @sample = current_user.samples.new(sample_params)
 
     respond_to do |format|
       if @sample.save
@@ -60,15 +65,18 @@ class SamplesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sample
-      @sample = Sample.find(params[:id])
+      @sample = current_user.samples.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to(samples_url, :notice => 'Access denied to this resource')
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sample_params
-      params.require(:sample).permit(:name, :title, :cell_type_id, :tissue_id, :organism_id, :molecule_id,:strain_id,:project_id)
+        params.require(:sample).permit(:name, :title, :cell_type_id, :tissue_id, :organism_id, :molecule_id,:strain_id,:project_id,:number_of_samples)
     end
 end

@@ -5,18 +5,19 @@
 
 <p>
   <strong>Sample:</strong>
-  <%= @experiment_detail.sample.name %>
+        <%= @experiment_detail.samples.collect(&:name).join(",")	 %>
+
 </p>
 
 <p>
   <strong>Platform:</strong>
-  <%= @experiment_detail.platform.name
+        <%= @experiment_detail.platforms.collect(&:name).join(",")	 %>
    %>
 </p>
 
 <p>
   <strong>Protocol:</strong>
-  <%= @experiment_detail.protocol.name %>
+        <%= @experiment_detail.protocols.collect(&:name).join(",")	 %>
 </p>
 
 <p>

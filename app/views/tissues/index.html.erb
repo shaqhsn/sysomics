@@ -12,7 +12,7 @@
       <tr>
         <td><%= tissue.name %></td>
         <td><%= link_to 'Show', tissue %></td>
-        <td><%= link_to 'Edit', edit_tissue_path(tissue) %></td>
+        <td><%= link_to 'Edit', edit_tissue_path(tissue)  %></td>
         <td><%= link_to 'Destroy', tissue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -21,4 +21,4 @@
 
 <br>
 
-<%= link_to 'New Tissue', new_tissue_path %>
+<%= link_to 'New Tissue', new_tissue_path ,:class => "blue btn " %>

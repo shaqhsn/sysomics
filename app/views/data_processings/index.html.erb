@@ -18,7 +18,6 @@
       <tr>
         <td><%= data_processing.data_processing_type.name %></td>
         <td><%= data_processing.software.name %></td>
-        <td><%= data_processing.command %></td>
         <td><%= data_processing.data_set.name %></td>
         <% if  data_processing.assets.present? %>
             <% data_processing.assets.each do |asset| %>
@@ -31,8 +30,8 @@
         <% end %>
         <td><%= link_to  'Download',sftp_download_data_processing_url(data_processing) %></td>
         <td><%= link_to 'Show', data_processing %></td>
-        <td><%= link_to 'Edit', edit_data_processing_path(data_processing) %></td>
-        <td><%= link_to 'Destroy', data_processing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_data_processing_path(data_processing)  %></td>
+        <td><%= link_to 'Destroy', data_processing, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,5 +39,4 @@
 
 <br>
 
-<%= link_to 'New Analysis', new_data_processing_path %>
->
+<%= link_to 'New Analysis', new_data_processing_path,:class => "blue btn " %>

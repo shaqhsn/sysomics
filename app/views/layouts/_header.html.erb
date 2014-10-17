@@ -1,15 +1,12 @@
 
-
 <header class="navbar navbar-fixed-top ">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to image_tag("sysomics.jpg", alt: "sysomics"), root_path ,id: "logo" %>
-
       <nav>
-        <ul class="nav pull-left">
-        <li><%= link_to "Home", root_path %></li>
+        <ul class="nav pull-right">
           <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
+
           <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
@@ -18,29 +15,27 @@
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings", users_path %></li>
                 <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
-                </li>
+                <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
               </ul>
-            </li>
-                          	<li><%= link_to "Projects", projects_path %></li>
+          </li>
+          </ul>
+          <%= link_to image_tag("sysomics.jpg", alt: "sysomics" ,:height => '40',:width=> '45'), root_path ,id: "logo" %>
 
+        <ul class="nav pull-left">
+          <li><%= link_to "Projects", projects_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                Samples <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-              	 <li><%= link_to "Samples", samples_path %></li>
-              	 <li class="divider"></li>
+              	<li><%= link_to "Samples", samples_path %></li>
+              	<li class="divider"></li>
                 <li><%= link_to "Organisms", organisms_path %></li>
-                <li><%= link_to "Tissues", tissues_path %></li>
-                <li><%= link_to "CellTypes", cell_types_path %></li>
-                <li><%= link_to "Strain", strains_path %></li>
+                <li><%= link_to "Tissues/Cell types", tissues_path %></li>
+                <li><%= link_to "Strains", strains_path %></li>
                 <li><%= link_to "Molecules", molecules_path %></li>
               </ul>
-              
-            </li>
-
+          </li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Experiments <b class="caret"></b>
@@ -49,48 +44,42 @@
                 <li>
                   <%= link_to "Expeiments", experiment_details_path %>
                 </li>
-                <li class="divider"></li>
-
-                <li><%= link_to "Platforms", platforms_path %></li>
+              	<li class="divider"></li>
+              	<li><%= link_to "Platforms", platforms_path %></li>
                 <li><%= link_to "Protocoles", protocols_path %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Diseases", diseases_path %></li>
               </ul>
-            </li>
-            	 <li id="fat-menu" class="dropdown">
+          </li>
+            <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Raw Data   <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-              	 <li><%= link_to "Data Sets", data_sets_path %></li>
-                <li><%= link_to "Data set's types", data_set_types_path %></li>
-
+              	 <li><%= link_to "Datasets", data_sets_path %></li>
+                <li><%= link_to "Dataset Types", data_set_types_path %></li>
               </ul>
-                <li id="fat-menu" class="dropdown">
+          <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Data analysis  <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Analysis", data_processings_path %></li>
+              	<li><%= link_to "Analysis", data_processings_path %></li>
                 <li><%= link_to "Analysis method", data_processing_types_path %></li>
-
                 <li class="divider"></li>
-                <li><%= link_to "Software", softwares_path %></li>
-               
+                <li><%= link_to "Software", softwares_path %></li>  
               </ul>
-
-         <li id="fat-menu" class="dropdown">
+          <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Publications  <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-              	 <li><%= link_to "Publications", publications_path %></li>
+              	<li><%= link_to "Publications", publications_path %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Public repositories", public_repositories_path %></li>
               </ul>
           <% else %>
-                      <li><%= link_to "Sign in", signin_path %></li>
-
+              	<li><%= link_to "Sign in", signin_path %></li>
           <% end %>
         </ul>
       </nav>

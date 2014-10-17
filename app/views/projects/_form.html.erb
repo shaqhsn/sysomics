@@ -11,38 +11,43 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :user_id %><br>
-   <h4><%= current_user.username %><h4/>  
+    <%= f.label :user_id %>
+   <h4><%= current_user.first_name %><h4/>  
   </div>
+<div class="mandatory">
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title ,:class=>"input-xxlarge"%>
   </div>
-  
+    </div>
+<div class="mandatory">
+
   <div class="field">
-    <%= f.label :summary %><br>
+    <%= f.label :summary %>
         <%= f.text_area :summary ,:class=>"input-xxlarge",:rows => 6 %>
 
   </div>
-  
+  <div>
+
   <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
+    <%= f.label :start_date %>
+    <%= f.date_select(:start_date, options = { order: [:month, :day, :year], prompt: { month: 'Select Month', day: 'Select Day', year: 'Select Year' }, start_year: 2000 }, html_options = { size: 1 }) %>
+
   </div>
   
   <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
+    <%= f.label :end_date %>
+    <%= f.date_select(:end_date, options = { order: [:month, :day, :year], prompt: { month: 'Select Month', day: 'Select Day', year: 'Select Year' }, start_year: 2000 }, html_options = { size: 1 }) %>
+
   </div>
   
   
   
  <%= f.fields_for :assets do |p| %>
      <div class="field">
-       <%= p.label :attachment %><br>
+       <%= p.label :attachment %>
        <%= p.file_field :attachment,name: "assets[attachment][]" %>
 
      </div>

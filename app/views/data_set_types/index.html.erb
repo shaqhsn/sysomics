@@ -1,4 +1,4 @@
-<h1>Listing data_set_types</h1>
+<h1>Listing dataset types</h1>
 
 <table class="table table-striped table-bordered table-condensed">  <thead>
     <tr>
@@ -12,8 +12,8 @@
       <tr>
         <td><%= data_set_type.name %></td>
         <td><%= link_to 'Show', data_set_type %></td>
-        <td><%= link_to 'Edit', edit_data_set_type_path(data_set_type) %></td>
-        <td><%= link_to 'Destroy', data_set_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_data_set_type_path(data_set_type)  %></td>
+        <td><%= link_to 'Destroy', data_set_type, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -21,4 +21,4 @@
 
 <br>
 
-<%= link_to 'New Data set type', new_data_set_type_path %>
+<%= link_to 'New Data set type', new_data_set_type_path ,:class => "blue btn "%>

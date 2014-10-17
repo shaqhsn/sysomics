@@ -8,6 +8,8 @@ class DataProcessing < ActiveRecord::Base
 	belongs_to:data_processing_type
 	belongs_to:software
 	belongs_to:data_set
+    belongs_to:user
+
 	has_many :assets,:as => :assetable,dependent: :destroy
 
 end

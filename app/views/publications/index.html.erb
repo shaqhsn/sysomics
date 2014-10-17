@@ -20,7 +20,7 @@
         <td><%= publication.DOI %></td>
         <td><%= link_to publication.url ,publication.url%></td>
         <td><%= link_to 'Show', publication %></td>
-        <td><%= link_to 'Edit', edit_publication_path(publication) %></td>
+        <td><%= link_to 'Edit', edit_publication_path(publication)%></td>
         <td><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -29,5 +29,5 @@
 
 <br>
 
-<%= link_to 'New Publication', new_publication_path %>
+<%= link_to 'New Publication', new_publication_path ,:class => "blue btn "%>
 
